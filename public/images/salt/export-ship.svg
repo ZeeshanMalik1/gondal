@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Placeholder artwork">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#3b2b33"/><stop offset="1" stop-color="#8a6f7b"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.2" r="0.95"><stop offset="0" stop-color="#f3d3d8" stop-opacity="0.18"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+<rect width="1200" height="800" fill="url(#g)"/>
+<rect width="1200" height="800" fill="url(#glow)"/>
+<polygon points="120,0 1080,0 1200,800 0,800" fill="rgba(255,255,255,0.05)"/>
+<polygon points="600,40 600,40 600,73 600,73" fill="#f3d3d8" fill-opacity="0.5"/>
+<polygon points="600,173 600,173 600,207 600,207" fill="#f3d3d8" fill-opacity="0.5"/>
+<polygon points="600,307 600,307 600,340 600,340" fill="#f3d3d8" fill-opacity="0.5"/>
+<polygon points="600,440 600,440 600,473 600,473" fill="#f3d3d8" fill-opacity="0.5"/>
+<polygon points="600,573 600,573 600,607 600,607" fill="#f3d3d8" fill-opacity="0.5"/>
+<polygon points="600,707 600,707 600,740 600,740" fill="#f3d3d8" fill-opacity="0.5"/>
+</svg>

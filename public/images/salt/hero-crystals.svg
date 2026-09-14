@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Placeholder artwork">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#3b2b33"/><stop offset="1" stop-color="#8a6f7b"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.2" r="0.95"><stop offset="0" stop-color="#f3d3d8" stop-opacity="0.18"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+<rect width="1920" height="1080" fill="url(#g)"/>
+<rect width="1920" height="1080" fill="url(#glow)"/>
+<polygon points="271,733 350,824 322,950 219,950 191,824" fill="#ffffff" fill-opacity="0.16" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(5 271 847)"/>
+<polygon points="758,765 793,805 781,860 735,860 723,805" fill="#f3d3d8" fill-opacity="0.11" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(32 758 815)"/>
+<polygon points="1648,717 1753,837 1715,1002 1580,1002 1542,837" fill="#f3d3d8" fill-opacity="0.06" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(18 1648 867)"/>
+<polygon points="971,53 1001,88 990,135 951,135 941,88" fill="#ffffff" fill-opacity="0.09" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(56 971 96)"/>
+<polygon points="996,-79 1055,-12 1034,81 958,81 937,-12" fill="#f3d3d8" fill-opacity="0.09" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(51 996 5)"/>
+<polygon points="777,654 885,778 847,949 707,949 668,778" fill="#f3d3d8" fill-opacity="0.16" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(37 777 809)"/>
+<polygon points="1451,660 1542,763 1509,905 1393,905 1361,763" fill="#ffffff" fill-opacity="0.08" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(77 1451 789)"/>
+<polygon points="18,-21 79,49 57,145 -22,145 -44,49" fill="#f3d3d8" fill-opacity="0.13" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(57 18 66)"/>
+<polygon points="639,511 752,639 711,816 567,816 527,639" fill="#f3d3d8" fill-opacity="0.09" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(50 639 671)"/>
+<polygon points="195,682 229,721 217,773 174,773 162,721" fill="#ffffff" fill-opacity="0.06" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(10 195 730)"/>
+<polygon points="367,940 405,983 391,1042 343,1042 329,983" fill="#f3d3d8" fill-opacity="0.10" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(83 367 994)"/>
+<polygon points="1585,766 1664,856 1636,980 1534,980 1506,856" fill="#f3d3d8" fill-opacity="0.10" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(6 1585 879)"/>
+<polygon points="1491,899 1555,972 1532,1072 1450,1072 1428,972" fill="#ffffff" fill-opacity="0.18" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(20 1491 990)"/>
+<polygon points="1759,725 1834,812 1807,931 1710,931 1683,812" fill="#f3d3d8" fill-opacity="0.13" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(23 1759 833)"/>
+<polygon points="1891,298 1926,338 1913,394 1868,394 1856,338" fill="#f3d3d8" fill-opacity="0.18" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(17 1891 348)"/>
+<polygon points="162,236 224,307 202,404 123,404 100,307" fill="#ffffff" fill-opacity="0.15" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(55 162 325)"/>
+<polygon points="1672,250 1738,326 1715,431 1629,431 1606,326" fill="#f3d3d8" fill-opacity="0.13" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(87 1672 345)"/>
+<polygon points="1477,265 1535,331 1515,423 1440,423 1419,331" fill="#f3d3d8" fill-opacity="0.16" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(56 1477 348)"/>
+<polygon points="310,211 358,265 341,340 279,340 262,265" fill="#ffffff" fill-opacity="0.17" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(60 310 279)"/>
+<polygon points="1696,943 1786,1046 1754,1187 1639,1187 1607,1046" fill="#f3d3d8" fill-opacity="0.06" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(40 1696 1072)"/>
+<polygon points="956,712 1010,774 990,858 921,858 902,774" fill="#f3d3d8" fill-opacity="0.08" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(62 956 789)"/>
+<polygon points="265,-4 329,69 306,169 224,169 202,69" fill="#ffffff" fill-opacity="0.07" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(59 265 87)"/>
+<polygon points="103,72 141,116 128,176 79,176 65,116" fill="#f3d3d8" fill-opacity="0.11" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(46 103 127)"/>
+<polygon points="1343,144 1382,188 1368,249 1318,249 1304,188" fill="#f3d3d8" fill-opacity="0.07" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(80 1343 199)"/>
+<polygon points="1552,323 1639,422 1608,558 1497,558 1466,422" fill="#ffffff" fill-opacity="0.11" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(44 1552 446)"/>
+<polygon points="1399,564 1456,629 1436,719 1362,719 1341,629" fill="#f3d3d8" fill-opacity="0.09" stroke="#f3d3d8" stroke-opacity="0.35" stroke-width="1" transform="rotate(13 1399 646)"/>
+</svg>

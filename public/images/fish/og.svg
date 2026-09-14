@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Placeholder artwork">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#06283a"/><stop offset="1" stop-color="#0c5e73"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.2" r="0.95"><stop offset="0" stop-color="#7fd3c8" stop-opacity="0.18"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+<rect width="1200" height="630" fill="url(#g)"/>
+<rect width="1200" height="630" fill="url(#glow)"/>
+<path d="M -20 50 Q 150 -20 300 50 Q 450 121 600 50 Q 750 -20 900 50 Q 1050 121 1200 50 Q 1350 -20 1500 50 Q 1650 121 1800 50 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.030"/>
+<path d="M -20 120 Q 150 42 300 120 Q 450 199 600 120 Q 750 42 900 120 Q 1050 199 1200 120 Q 1350 42 1500 120 Q 1650 199 1800 120 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.043"/>
+<path d="M -20 190 Q 150 128 300 190 Q 450 253 600 190 Q 750 128 900 190 Q 1050 253 1200 190 Q 1350 128 1500 190 Q 1650 253 1800 190 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.056"/>
+<path d="M -20 260 Q 150 188 300 260 Q 450 333 600 260 Q 750 188 900 260 Q 1050 333 1200 260 Q 1350 188 1500 260 Q 1650 333 1800 260 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.069"/>
+<path d="M -20 330 Q 150 299 300 330 Q 450 362 600 330 Q 750 299 900 330 Q 1050 362 1200 330 Q 1350 299 1500 330 Q 1650 362 1800 330 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.082"/>
+<path d="M -20 400 Q 150 373 300 400 Q 450 428 600 400 Q 750 373 900 400 Q 1050 428 1200 400 Q 1350 373 1500 400 Q 1650 428 1800 400 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.095"/>
+<path d="M -20 470 Q 150 398 300 470 Q 450 543 600 470 Q 750 398 900 470 Q 1050 543 1200 470 Q 1350 398 1500 470 Q 1650 543 1800 470 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.108"/>
+<path d="M -20 540 Q 150 490 300 540 Q 450 591 600 540 Q 750 490 900 540 Q 1050 591 1200 540 Q 1350 490 1500 540 Q 1650 591 1800 540 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.121"/>
+<path d="M -20 610 Q 150 571 300 610 Q 450 649 600 610 Q 750 571 900 610 Q 1050 649 1200 610 Q 1350 571 1500 610 Q 1650 649 1800 610 L 1220 650 L -20 650 Z" fill="#7fd3c8" fill-opacity="0.134"/>
+<path d="M 241 312 q 67 -13 134 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+<path d="M 113 461 q 96 -13 192 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+<path d="M 146 233 q 77 -13 153 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+<path d="M 144 270 q 81 -13 162 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+<path d="M -32 592 q 81 -13 161 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+<path d="M 74 536 q 60 -13 120 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+<path d="M 264 55 q 71 -13 141 0" fill="none" stroke="#7fd3c8" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+</svg>

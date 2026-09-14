@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Placeholder artwork">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#131114"/><stop offset="1" stop-color="#2c2721"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.2" r="0.95"><stop offset="0" stop-color="#f2a71b" stop-opacity="0.18"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+<rect width="1920" height="1080" fill="url(#g)"/>
+<rect width="1920" height="1080" fill="url(#glow)"/>
+<polygon points="192,0 1728,0 1920,1080 0,1080" fill="rgba(255,255,255,0.05)"/>
+<polygon points="960,54 960,54 960,99 960,99" fill="#f2a71b" fill-opacity="0.5"/>
+<polygon points="960,234 960,234 960,279 960,279" fill="#f2a71b" fill-opacity="0.5"/>
+<polygon points="960,414 960,414 960,459 960,459" fill="#f2a71b" fill-opacity="0.5"/>
+<polygon points="960,594 960,594 960,639 960,639" fill="#f2a71b" fill-opacity="0.5"/>
+<polygon points="960,774 960,774 960,819 960,819" fill="#f2a71b" fill-opacity="0.5"/>
+<polygon points="960,954 960,954 960,999 960,999" fill="#f2a71b" fill-opacity="0.5"/>
+</svg>

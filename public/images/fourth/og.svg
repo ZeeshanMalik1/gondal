@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Placeholder artwork">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#131114"/><stop offset="1" stop-color="#2c2721"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.2" r="0.95"><stop offset="0" stop-color="#f2a71b" stop-opacity="0.18"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+<rect width="1200" height="630" fill="url(#g)"/>
+<rect width="1200" height="630" fill="url(#glow)"/>
+<path d="M 600 91.35000000000002 C 770 290 789 403 600 507 C 411 403 430 290 600 91.35000000000002 Z" fill="#f2a71b" fill-opacity="0.85"/>
+<ellipse cx="543" cy="356" rx="34" ry="57" fill="rgba(255,255,255,0.35)" transform="rotate(-20 600 327.6)"/>
+<ellipse cx="600" cy="545" rx="142" ry="19" fill="#f2a71b" fill-opacity="0.3"/>
+</svg>

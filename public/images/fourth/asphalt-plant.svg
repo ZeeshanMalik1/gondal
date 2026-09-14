@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Placeholder artwork">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#131114"/><stop offset="1" stop-color="#2c2721"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.2" r="0.95"><stop offset="0" stop-color="#f2a71b" stop-opacity="0.18"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+<rect width="1200" height="800" fill="url(#g)"/>
+<rect width="1200" height="800" fill="url(#glow)"/>
+<line x1="60" y1="576" x2="1140" y2="576" stroke="#f2a71b" stroke-opacity="0.5" stroke-width="3"/>
+<circle cx="144" cy="624" r="28" fill="none" stroke="#f2a71b" stroke-opacity="0.6" stroke-width="2.5"/>
+<circle cx="372" cy="624" r="28" fill="none" stroke="#f2a71b" stroke-opacity="0.6" stroke-width="2.5"/>
+<circle cx="600" cy="624" r="28" fill="none" stroke="#f2a71b" stroke-opacity="0.6" stroke-width="2.5"/>
+<circle cx="828" cy="624" r="28" fill="none" stroke="#f2a71b" stroke-opacity="0.6" stroke-width="2.5"/>
+<circle cx="1056" cy="624" r="28" fill="none" stroke="#f2a71b" stroke-opacity="0.6" stroke-width="2.5"/>
+<polygon points="660,536 816,536 900,240 576,240" fill="rgba(255,255,255,0.08)" stroke="#f2a71b" stroke-opacity="0.55" stroke-width="2.5"/>
+<rect x="708" y="448" width="60" height="96" fill="#f2a71b" fill-opacity="0.3"/>
+<circle cx="734" cy="626" r="4" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="745" cy="604" r="5" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="735" cy="625" r="6" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="753" cy="616" r="4" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="738" cy="603" r="6" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="734" cy="610" r="6" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="729" cy="630" r="7" fill="#f2a71b" fill-opacity="0.4"/>
+<circle cx="742" cy="618" r="6" fill="#f2a71b" fill-opacity="0.4"/>
+</svg>
