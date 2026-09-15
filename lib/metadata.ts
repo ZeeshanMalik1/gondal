@@ -3,7 +3,7 @@ import { site } from "@/config";
 
 /** Absolute base URL — override with NEXT_PUBLIC_SITE_URL in production. */
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
+  process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "") ||
   "https://gondalgroup.example.com";
 
 /** Build an absolute URL from a site-relative path. */
