@@ -76,6 +76,46 @@ components in `components/branding/Logos.tsx`.
 (see `.env.example`). The UI communicates this truthfully — no fake
 "message sent" states. Point it at any webhook/email provider later.
 
+## PWA (installable, offline-capable)
+
+The site is a full progressive web app:
+
+| Piece | Location | Behaviour |
+|---|---|---|
+| Manifest | `app/manifest.ts` | `standalone`, scope/id, shortcuts, 192/512 PNG + maskable icons |
+| Icons | `scripts/generate-pwa-icons.mjs` | PNGs derived from `app/icon.svg` → `public/icons/` (`npm run icons`) |
+| Service worker | `public/sw.js` | network-first pages, cache-first hashed assets, SWR images; offline fallback to `/offline.html` |
+| Offline page | `public/offline.html` | fully self-contained (inline CSS) so it renders with zero connectivity |
+| Provider | `components/pwa/PwaProvider.tsx` | registers the SW (production only), captures `beforeinstallprompt`, iOS "Add to Home Screen" help, dismiss-forever banner, update toast with `SKIP_WAITING` handshake |
+
+Notes:
+
+- The SW registers only when `NODE_ENV === "production"` — `npm run dev`
+  never caches, so hot reload always works.
+- `sw.js` is served with `Cache-Control: max-age=0, must-revalidate`
+  (see `next.config.mjs`) — the worker itself is the update channel.
+- Regenerate icons after editing `app/icon.svg`: `npm run icons`
+  (requires `sharp`, already present via Next.js; degrades gracefully).
+
+## Navigation & mobile-first behaviour
+
+- **Sticky headers** on all five sites: shadow on scroll, utility strip
+  collapses to reclaim vertical space on small screens.
+- **Shared drawer** (`components/ui/MobileMenu.tsx`) replaces the five
+  hand-rolled mobile panels: slide-in from the right, focus trap,
+  Escape/backdrop/route-change/resize-to-desktop dismissal, background
+  scroll lock (`body[data-scroll-locked]`), safe-area padding, ≥44px
+  touch targets. The corporate drawer passes `hideBackLink` — it *is* the
+  group site, so it doesn't offer a link back to itself.
+- **Route progress bar** (`components/navigation/RouteProgress.tsx`) —
+  thin top indicator during client-side navigations, with an 8s failsafe.
+- **Route scroll discipline** (`components/navigation/RouteChangeHandler.tsx`) —
+  instant scroll-to-top on path change (hash links land on their section,
+  offset by `scroll-padding-top` under the sticky header).
+- Per-business `loading.tsx` streams a brand-tokened spinner while pages
+  resolve; `min-h-dvh` and `overflow-x: clip` keep mobile browser chrome
+  and stray overflow from breaking layouts.
+
 ## Environment
 
 ```bash

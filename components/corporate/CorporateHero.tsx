@@ -27,7 +27,7 @@ export function CorporateHero() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.03] tracking-tight text-balance sm:text-6xl lg:text-[4.6rem]">
+          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-[4.6rem]">
             {site.hero.headline[0]}{" "}
             {site.hero.headline[1] ? <em className="italic text-accent">{site.hero.headline[1]}</em> : null}
           </h1>

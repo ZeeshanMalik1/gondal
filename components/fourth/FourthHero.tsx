@@ -22,7 +22,7 @@ export function FourthHero() {
               <span className="h-2 w-2 rounded-full bg-[#C9A227]" aria-hidden="true" />
               {fourth.hero.eyebrow}
             </p>
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl">
               {fourth.hero.headline[0]}<span className="mt-1 block italic text-[#C9A227]">{fourth.hero.headline[1]}</span>
             </h1>
           </Reveal>

@@ -23,7 +23,7 @@ export function SaltHero() {
               <span className="h-px w-10 bg-[#D6A08A]" aria-hidden="true" />
               {salt.hero.eyebrow}
             </p>
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.07] tracking-tight text-white sm:text-5xl md:text-6xl">
               {salt.hero.headline[0]}{" "}
               <span className="italic text-[#D6A08A]">{salt.hero.headline[1]}</span>
             </h1>

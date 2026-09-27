@@ -39,7 +39,7 @@ export default function CrushersLayout({ children }: { children: React.ReactNode
   return (
     <div
       style={layoutStyle(crushers.displayFont, crushers.colors) as CSSProperties}
-      className="flex min-h-screen flex-col bg-surface"
+      className="flex min-h-dvh flex-col bg-surface"
     >
       <CrushersHeader />
       <main id="main-content" className="flex-1">

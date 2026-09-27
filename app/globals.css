@@ -18,7 +18,20 @@
 
 html {
   scroll-behavior: smooth;
+  /* Anchor jumps land below the sticky header instead of under it.
+     Business headers stack utility strip + main bar on larger screens. */
+  scroll-padding-top: 6rem;
+  /* iOS text inflation never breaks the layout — sizes are set explicitly. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+}
+
 
 body {
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
@@ -26,7 +39,61 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Mobile-first: never allow sideways scrolling. `clip` (not `hidden`) —
+     `hidden` would make the body a scroll container and break the sticky
+     headers; `clip` just paints the overflow away. */
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+  /* Kill the grey tap flash on touch devices. */
+  -webkit-tap-highlight-color: transparent;
 }
+
+/* Sticky headers (all five sites) keep content clear of the iOS status bar
+   once viewport-fit=cover is active in the installed app. */
+[data-sticky-header] {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Bottom-fixed UI (install banner, update toast, footer bars) clears the
+   home indicator. */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+}
+
+/* While a mobile menu / modal is open the background must not scroll. */
+body[data-scroll-locked] {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* …and fixed PWA UI (install banner, update toast) steps aside so it never
+   covers an open drawer or modal. */
+body[data-scroll-locked] [data-pwa-float] {
+  display: none;
+}
+
+/* Route-change progress bar (RouteProgress) — indeterminate slide. */
+@keyframes route-progress-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  55% {
+    transform: translateX(15%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.route-progress-bar {
+  transform: translateX(-100%);
+  animation: route-progress-slide 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-progress-bar {
+    animation-duration: 2.5s;
+  }
+}
+
 
 /* Headings use the site-specific display face (--font-display is set by each
    layout). Inline styles on foreign content never bypass this. */

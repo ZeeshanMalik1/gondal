@@ -41,6 +41,7 @@ export function Button({
           href={href}
           className={classes}
           aria-label={ariaLabel}
+          onClick={onClick}
           target={href.startsWith("http") ? "_blank" : undefined}
           rel={href.startsWith("http") ? "noreferrer" : undefined}
         >
@@ -49,7 +50,7 @@ export function Button({
       );
     }
     return (
-      <Link href={href} className={classes} aria-label={ariaLabel}>
+      <Link href={href} className={classes} aria-label={ariaLabel} onClick={onClick}>
         {children}
       </Link>
     );

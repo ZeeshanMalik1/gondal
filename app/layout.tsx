@@ -9,6 +9,9 @@ import { site } from "@/config/site";
 import { siteUrl } from "@/lib/metadata";
 import { colorTokens } from "@/lib/tokens";
 import type { BrandColors } from "@/config/types";
+import { PwaProvider } from "@/components/pwa/PwaProvider";
+import { RouteChangeHandler } from "@/components/navigation/RouteChangeHandler";
+import { RouteProgress } from "@/components/navigation/RouteProgress";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -20,6 +23,17 @@ export const metadata: Metadata = {
   keywords: site.metadata.keywords,
   applicationName: site.legalName,
   other: { "og:site_name": site.name },
+  // iOS home-screen support: apple-touch-icon is generated with the manifest
+  // icons by scripts/generate-pwa-icons.mjs.
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: site.shortName,
+    statusBarStyle: "default",
+  },
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -37,8 +51,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  // Fill the display on notched phones inside the installed app…
+  viewportFit: "cover",
+  // …and let the page reflow when the on-screen keyboard opens, so form
+  // fields are never hidden behind it.
+  interactiveWidget: "resizes-content",
   themeColor: site.metadata.themeColor,
 };
+
 
 /**
  * Corporate brand tokens. Business layouts override these on their own
@@ -72,10 +92,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }
     >
       <body className="font-sans">
-        <a href="#main-content" className="skip-link">
-          Skip to content
-        </a>
-        {children}
+        <PwaProvider>
+          <RouteChangeHandler />
+          <RouteProgress />
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
+          {children}
+        </PwaProvider>
       </body>
     </html>
   );

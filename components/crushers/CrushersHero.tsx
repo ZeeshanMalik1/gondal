@@ -22,7 +22,7 @@ export function CrushersHero() {
               <span className="h-[7px] w-[7px] bg-[#E4A11B]" aria-hidden="true" />
               {crushers.hero.eyebrow}
             </p>
-            <h1 className="mt-5 font-display text-6xl font-bold uppercase leading-[0.96] tracking-[-0.02em] sm:text-7xl">
+            <h1 className="mt-5 font-display text-5xl font-bold uppercase leading-[0.98] tracking-[-0.02em] sm:text-6xl md:text-7xl">
               {crushers.hero.headline[0]}
               <span className="mt-1 block text-[#E4A11B]">{crushers.hero.headline[1]}</span>
             </h1>

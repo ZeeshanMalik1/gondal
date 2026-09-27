@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { site } from "@/config/site";
 import { businesses } from "@/config";
+import { useScrolled } from "@/lib/useScrolled";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { MobileMenu } from "@/components/ui/MobileMenu";
 import { BrandLockup } from "@/components/branding/Logos";
 
 const NAV = [
@@ -20,18 +22,16 @@ const NAV = [
 
 export function CorporateHeader() {
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  const scrolled = useScrolled();
 
   return (
-    <header className="relative z-50 bg-surface-dark text-white">
+    <header
+      data-sticky-header
+      className={cn(
+        "sticky top-0 z-50 bg-surface-dark text-white transition-shadow duration-300",
+        scrolled && "shadow-[0_8px_30px_rgba(0,0,0,0.35)]",
+      )}
+    >
       {/* utility strip */}
       <div className="hidden border-b border-white/10 lg:block">
         <Container className="flex items-center justify-between py-2.5">
@@ -86,42 +86,65 @@ export function CorporateHeader() {
         </button>
       </Container>
 
-      {/* mobile panel */}
-      <div
+      {/* mobile drawer */}
+      <MobileMenu
         id="corp-menu"
-        className={cn(
-          "border-t border-white/10 bg-surface-dark lg:hidden",
-          open ? "block" : "hidden",
-        )}
+        open={open}
+        onClose={() => setOpen(false)}
+        label="Primary"
+        tone="dark"
+        title={site.legalName}
+        hideBackLink
       >
-        <Container className="flex flex-col gap-1 py-5">
+        <ul className="flex flex-col">
           {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-between border-b border-white/10 py-3 text-[0.95rem] font-medium text-white/85 hover:text-white"
-            >
-              {item.label}
-              <Icon name="arrow-right" className="h-4 w-4 text-brand" />
-            </a>
+            <li key={item.href}>
+              <a
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="flex min-h-[48px] items-center justify-between border-b border-white/10 py-3 text-[0.95rem] font-medium text-white/85 hover:text-white"
+              >
+                {item.label}
+                <Icon name="arrow-right" className="h-4 w-4 text-accent" />
+              </a>
+            </li>
           ))}
-          <div className="mt-4 grid gap-1.5">
-            {businesses.map((b) => (
+        </ul>
+
+        <p className="mt-6 font-eyebrow text-white/45">Our businesses</p>
+        <ul className="mt-3 flex flex-col gap-1.5">
+          {businesses.map((b) => (
+            <li key={b.slug}>
               <Link
-                key={b.slug}
                 href={`/${b.slug}`}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2.5 rounded-md border border-white/10 px-3 py-2.5 text-sm text-white/80 hover:bg-white/5"
+                className="flex min-h-[48px] items-center gap-2.5 rounded-md border border-white/10 px-3 py-2.5 text-sm text-white/80 hover:bg-white/5"
               >
-                <span className="text-accent" aria-hidden="true">◆</span>
+                <span aria-hidden="true" className="text-accent">◆</span>
                 {b.name}
                 <span className="ml-auto text-xs text-white/40">{b.industryTag}</span>
               </Link>
-            ))}
-          </div>
-        </Container>
-      </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 grid gap-2">
+          <a
+            href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
+            className="flex min-h-[48px] items-center gap-3 rounded-md border border-white/10 px-3 text-sm text-white/80 hover:bg-white/5"
+          >
+            <Icon name="phone" className="h-4 w-4 text-accent" />
+            {site.contact.phone}
+          </a>
+          <a
+            href={`mailto:${site.contact.email}`}
+            className="flex min-h-[48px] items-center gap-3 rounded-md border border-white/10 px-3 text-sm text-white/80 hover:bg-white/5"
+          >
+            <Icon name="mail" className="h-4 w-4 text-accent" />
+            <span className="truncate">{site.contact.email}</span>
+          </a>
+        </div>
+      </MobileMenu>
     </header>
   );
 }

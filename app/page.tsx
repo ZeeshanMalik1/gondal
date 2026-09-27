@@ -14,8 +14,8 @@ export default function HomePage() {
       <CorporateHeader />
       <main id="main-content">
         <CorporateHero />
-        <ManifestoSection />
         <BusinessesSection />
+        <ManifestoSection />
         <WhyUsSection />
         <StatsSection />
         <LocationsSection />

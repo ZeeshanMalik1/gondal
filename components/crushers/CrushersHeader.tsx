@@ -2,37 +2,52 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { crushers } from "@/config/crushers";
+import { useScrolled } from "@/lib/useScrolled";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
+import { MobileMenu } from "@/components/ui/MobileMenu";
 import { BackToGroup } from "@/components/ui/BackToGroup";
 import { BrandLockup } from "@/components/branding/Logos";
 
 export function CrushersHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  useEffect(() => setOpen(false), [pathname]);
+  const scrolled = useScrolled();
   const isActive = (href: string) => href === pathname || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="relative z-50 border-b-4 border-[#E4A11B] bg-[#1B1E22] text-white">
-      {/* utility strip */}
-      <div className="border-b border-white/10">
-        <Container className="flex items-center justify-between gap-4 py-2.5">
-          <p className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/70">
-            <span className="h-2 w-2 bg-[#E4A11B]" aria-hidden="true" />
-            {crushers.name} · {crushers.est}
-          </p>
-          <div className="flex items-center gap-5">
-            <a href={`tel:${crushers.contact.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white">
-              <Icon name="phone" className="h-3.5 w-3.5" label="Phone" />
-              {crushers.contact.phone}
-            </a>
-            <BackToGroup className="text-white/80 hover:text-white" />
-          </div>
-        </Container>
+    <header
+      data-sticky-header
+      className={cn(
+        "sticky top-0 z-50 border-b-4 border-[#E4A11B] bg-[#1B1E22] text-white transition-shadow duration-300",
+        scrolled && "shadow-[0_8px_30px_rgba(0,0,0,0.45)]",
+      )}
+    >
+      {/* utility strip — collapses while scrolled to reclaim vertical space */}
+      <div
+        className={cn(
+          "overflow-hidden transition-all duration-300",
+          scrolled ? "max-h-0 opacity-0" : "max-h-16 opacity-100",
+        )}
+      >
+        <div className="border-b border-white/10">
+          <Container className="flex items-center justify-between gap-4 py-2.5">
+            <p className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/70">
+              <span className="h-2 w-2 bg-[#E4A11B]" aria-hidden="true" />
+              {crushers.name} · {crushers.est}
+            </p>
+            <div className="flex items-center gap-5">
+              <a href={`tel:${crushers.contact.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white">
+                <Icon name="phone" className="h-3.5 w-3.5" label="Phone" />
+                {crushers.contact.phone}
+              </a>
+              <BackToGroup className="hidden text-white/80 hover:text-white sm:inline-flex" />
+            </div>
+          </Container>
+        </div>
       </div>
 
       {/* main bar */}
@@ -76,25 +91,55 @@ export function CrushersHeader() {
             <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
           </button>
         </Container>
+      </div>
 
-        <div id="crushers-menu" className={cn("border-t border-white/10", open ? "block" : "hidden")}>
-          <Container className="flex flex-col py-4">
-            {crushers.navigation.map((item) => (
+      {/* mobile drawer */}
+      <MobileMenu
+        id="crushers-menu"
+        open={open}
+        onClose={() => setOpen(false)}
+        label="Crushing Works"
+        tone="dark"
+        title={crushers.name}
+      >
+        <ul className="flex flex-col">
+          {crushers.navigation.map((item) => (
+            <li key={item.href}>
               <Link
-                key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
-                  "block px-4 py-3 text-sm font-bold uppercase tracking-[0.08em]",
-                  isActive(item.href) ? "bg-[#E4A11B] text-[#16181C]" : "text-white/75 hover:bg-white/5",
+                  "flex min-h-[48px] items-center justify-between px-4 py-3 text-sm font-bold uppercase tracking-[0.08em]",
+                  isActive(item.href)
+                    ? "bg-[#E4A11B] text-[#16181C]"
+                    : "text-white/75 hover:bg-white/5",
                 )}
               >
                 {item.label}
+                <Icon name="chevron-right" className="h-4 w-4" />
               </Link>
-            ))}
-          </Container>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 grid gap-2">
+          <Link
+            href="/crushers/contact"
+            onClick={() => setOpen(false)}
+            className="flex min-h-[48px] items-center justify-center bg-[#E4A11B] px-4 text-sm font-bold uppercase tracking-[0.06em] text-[#16181C] hover:bg-[#B97F12]"
+          >
+            Order aggregate
+          </Link>
+          <a
+            href={`tel:${crushers.contact.phone.replace(/\s/g, "")}`}
+            className="flex min-h-[48px] items-center gap-3 border border-white/10 px-4 text-sm text-white/80 hover:bg-white/5"
+          >
+            <Icon name="phone" className="h-4 w-4 text-[#E4A11B]" />
+            {crushers.contact.phone}
+          </a>
         </div>
-      </div>
+      </MobileMenu>
     </header>
   );
 }

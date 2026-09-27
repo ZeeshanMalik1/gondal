@@ -31,7 +31,7 @@ export function FishHero() {
               <Icon name="wave" className="h-4 w-4" />
               {fish.hero.eyebrow}
             </p>
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.04] tracking-tight text-ink sm:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl">
               {fish.hero.headline[0]}{" "}
               <em className="italic font-medium text-brand">{fish.hero.headline[1]}</em>
             </h1>

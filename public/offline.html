@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1D2A3A" />
+    <title>Offline — Gondal Group</title>
+    <!--
+      Offline fallback served by public/sw.js when a page is not cached and
+      the network is unreachable. Deliberately self-contained (inline CSS, no
+      external assets) so it renders with zero connectivity.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+        --surface: #f8f5ef;
+        --ink: #171a1e;
+        --muted: #5c6472;
+        --brand: #1d2a3a;
+        --accent: #b08d4c;
+        --line: #e4ded2;
+      }
+      * { box-sizing: border-box; margin: 0; }
+      body {
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+        background: var(--surface);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        width: 100%;
+        max-width: 32rem;
+        text-align: center;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 40px 28px;
+      }
+      .mark {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 20px;
+        display: grid;
+        place-items: center;
+        background: var(--brand);
+        border-radius: 10px;
+        color: var(--accent);
+        font-size: 26px;
+        font-weight: 700;
+      }
+      .eyebrow {
+        color: var(--accent);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      h1 { font-size: clamp(1.6rem, 5vw, 2.1rem); margin-top: 10px; line-height: 1.15; }
+      p.lead { color: var(--muted); margin-top: 14px; line-height: 1.6; font-size: 0.98rem; }
+      .actions { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+      a, button {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 22px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        font-family: inherit;
+      }
+      a.primary { background: var(--brand); color: #fff; }
+      a.primary:hover { background: #111a26; }
+      button.secondary { background: transparent; border-color: var(--line); color: var(--ink); }
+      button.secondary:hover { border-color: var(--brand); }
+      a:focus-visible, button:focus-visible {
+        outline: 2px solid var(--brand);
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <main role="main">
+      <div class="mark" aria-hidden="true">G</div>
+      <p class="eyebrow">No connection</p>
+      <h1>You&#8217;re offline right now.</h1>
+      <p class="lead">
+        This page hasn&#8217;t been saved for offline use yet. Check your connection and
+        try again &#8212; pages you&#8217;ve already visited are available offline.
+      </p>
+      <div class="actions">
+        <a class="primary" href="/">Back to the group</a>
+        <button class="secondary" type="button" onclick="location.reload()">Try again</button>
+      </div>
+    </main>
+  </body>
+</html>

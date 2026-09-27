@@ -40,7 +40,7 @@ export default function FishLayout({ children }: { children: React.ReactNode }) 
   return (
     <div
       style={layoutStyle(fish.displayFont, fish.colors) as CSSProperties}
-      className="flex min-h-screen flex-col bg-surface"
+      className="flex min-h-dvh flex-col bg-surface"
     >
       <FishHeader />
       <main id="main-content" className="flex-1">
