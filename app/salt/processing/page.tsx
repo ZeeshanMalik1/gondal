@@ -3,7 +3,7 @@ import { salt } from "@/config/salt";
 import { makeMetadata } from "@/lib/metadata";
 import { SaltInteriorHero } from "@/components/salt/SaltInteriorHero";
 import { Container } from "@/components/ui/Container";
-import { Section, SectionHeader } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion/Reveal";
@@ -26,32 +26,58 @@ export default function SaltProcessingPage() {
         current="Processing"
         lead="Capacities and line details are placeholders — the sequence below is how the works actually runs."
       />
+
       <Section ariaLabel="Processing steps" className="bg-surface">
         <Container className="py-16 sm:py-20">
-          <div className="mt-8 border-t border-line-var">
+          <ol className="grid gap-[var(--grid-gap)] sm:grid-cols-2">
             {salt.process?.map((step, i) => (
-              <Reveal key={step.no} delay={(i % 3) * 0.06} className="grid items-baseline gap-8 border-b border-line-var py-8 md:grid-cols-[90px_1fr]">
-                <span className="font-display text-4xl font-semibold text-brand">{step.no}</span>
+              <Reveal key={step.no} delay={(i % 2) * 0.08} className="card card-lift flex gap-5">
+                <span className="font-display text-4xl font-medium leading-none text-accent">
+                  {step.no}
+                </span>
                 <div>
-                  <div className="flex items-center gap-3">
-                    <Icon name={step.icon} label={step.title} className="h-5 w-5 text-[#D6A08A]" />
-                    <h2 className="font-display text-2xl font-semibold text-ink">{step.title}</h2>
+                  <div className="flex items-center gap-2.5">
+                    <Icon name={step.icon} label={step.title} className="h-4 w-4 text-brand" />
+                    <h2 className="font-display text-xl font-medium text-ink">{step.title}</h2>
                   </div>
-                  <p className="mt-3 leading-relaxed text-[0.98rem] text-muted-var">{step.body}</p>
+                  <p className="mt-2.5 text-[0.98rem] leading-relaxed text-muted-var">{step.body}</p>
                 </div>
               </Reveal>
             )) ?? null}
-          </div>
+          </ol>
 
-          <Reveal className="mt-14 rounded-sm border border-line-var bg-brand-soft p-8 sm:p-10">
-            <SectionHeader eyebrow="Staying honest" title="What we will and won’t claim." titleClassName="text-2xl" />
-            <p className="mt-4 leading-relaxed text-[0.98rem] text-muted-var">
-              We will tell you exactly what our plant can produce, which tests we run, and every
-              tolerance in the spec. We will not invent capacity, purity or certifications we
-              cannot show you on paper.
-            </p>
-            <div className="mt-6">
-              <Button href="/salt/contact">Ask for a plant visit</Button>
+          <Reveal className="mt-12 grid gap-[var(--grid-gap)] lg:grid-cols-12">
+            <div className="card flex flex-col justify-between gap-6 bg-brand text-white lg:col-span-7">
+              <div>
+                <h2 className="font-display text-2xl font-medium text-white">
+                  What we will and won’t claim.
+                </h2>
+                <p className="mt-3 text-[0.98rem] leading-relaxed text-white/75">
+                  We will tell you exactly what our plant can produce, which tests we run, and every
+                  tolerance in the spec. We will not invent capacity, purity or certifications we
+                  cannot show you on paper.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Button href="/salt/contact" variant="accent" size="lg">
+                  Ask for a plant visit
+                </Button>
+                <Button href="/salt/quality" variant="ghost-light" size="lg">
+                  See the lab
+                </Button>
+              </div>
+            </div>
+
+            <div className="card lg:col-span-5">
+              <p className="font-eyebrow text-brand">Line facts</p>
+              <ul className="mt-5 grid gap-3">
+                {["Multi-stage crushing and milling", "Washed, dried and graded to sieve", "Metered iodisation for food grade", "Palletised, sealed and documented"].map((line) => (
+                  <li key={line} className="flex items-start gap-2.5 text-sm text-muted-var">
+                    <Icon name="check" className="mt-0.5 h-3.5 w-3.5 text-brand" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
 

@@ -6,6 +6,8 @@
  * never hard-code business details inside components.
  */
 
+import type { IconName } from "@/components/ui/Icon";
+
 export interface NavLink {
   href: string;
   label: string;
@@ -64,6 +66,10 @@ export interface BrandColors {
   onBrand: string;
   /** Border radius for shared buttons, e.g. "9999px" (fish) or "0" (crushers). */
   btnRadius: string;
+  /** Border radius for cards and chips; defaults to the button radius. */
+  cardRadius?: string;
+  /** Base gap for card grids, e.g. "1.25rem". Defaults to 1.25rem. */
+  gridGap?: string;
 }
 
 export interface StatItem {
@@ -118,7 +124,7 @@ export interface BusinessImages {
 export interface SpeciesItem {
   name: string;
   latin: string;
-  icon: string;
+  icon: IconName;
   body: string;
   details: string[];
 }
@@ -126,7 +132,7 @@ export interface SpeciesItem {
 export interface ProductItem {
   name: string;
   tag: string;
-  icon: string;
+  icon: IconName;
   body: string;
   specs: string[];
 }
@@ -135,12 +141,12 @@ export interface ProcessStep {
   no: string;
   title: string;
   body: string;
-  icon: string;
+  icon: IconName;
 }
 
 export interface FacilityItem {
   title: string;
-  icon: string;
+  icon: IconName;
   body: string;
   points: string[];
 }
@@ -176,6 +182,9 @@ export interface BusinessConfig {
   colors: BrandColors;
   /** Display font family name (loaded by each business layout via @fontsource). */
   displayFont: string;
+  /** Layouts with `upper` set data-display-case on their wrapper, which renders
+   *  headings in caps — for Roman titling faces, which read best that way. */
+  displayCase?: "upper" | "none";
   hero: {
     eyebrow: string;
     /** Headline lines; the optional second line is styled as accent text. */
@@ -192,7 +201,7 @@ export interface BusinessConfig {
     body: string;
     bodySecondary?: string;
     image?: string;
-    points: { title: string; body: string; icon: string }[];
+    points: { title: string; body: string; icon: IconName }[];
   };
   stats: StatItem[];
   /** Main navigation (order matters). */

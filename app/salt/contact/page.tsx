@@ -36,13 +36,13 @@ export default function SaltContactPage() {
               <div className="rounded-sm border border-line-var bg-white p-8">
                 <p className="font-eyebrow text-brand">Works office</p>
                 <ul className="mt-6 divide-y divide-line-var">
-                  {[
+                  {([
                     ["phone", "Phone", salt.contact.phone, `tel:${salt.contact.phone.replace(/\s/g, "")}`],
                     ["whatsapp", "WhatsApp", salt.contact.whatsapp ?? "", salt.contact.whatsapp ? `https://wa.me/${salt.contact.whatsapp.replace(/\D/g, "")}` : ""],
                     ["mail", "Email", salt.contact.email, `mailto:${salt.contact.email}`],
                     ["pin", "Address", salt.contact.address, ""],
                     ["clock", "Hours", salt.contact.hours, ""],
-                  ].map(([icon, label, value, href]) => (
+                  ] as const).map(([icon, label, value, href]) => (
                     <li key={label} className="flex items-center gap-4 py-4">
                       <Icon name={icon} label={label} className="h-5 w-5 shrink-0 text-brand" />
                       <div className="min-w-0 flex-1">

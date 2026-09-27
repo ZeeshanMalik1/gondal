@@ -5,7 +5,7 @@ import { FishInteriorHero } from "@/components/fish/FishInteriorHero";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ui/ContactForm";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion/Reveal";
 import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = makeMetadata({
   keywords: fish.metadata.keywords,
 });
 
-const ROWS = [
+const ROWS: { icon: IconName; label: string; value: string; href?: string }[] = [
   { icon: "phone", label: "Phone", value: fish.contact.phone, href: `tel:${fish.contact.phone.replace(/\s/g, "")}` },
   { icon: "whatsapp", label: "WhatsApp", value: fish.contact.whatsapp ?? "", href: fish.contact.whatsapp ? `https://wa.me/${fish.contact.whatsapp.replace(/\D/g, "")}` : "" },
   { icon: "mail", label: "Email", value: fish.contact.email, href: `mailto:${fish.contact.email}` },

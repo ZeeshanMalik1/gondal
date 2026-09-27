@@ -1,8 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 
-import "@fontsource-variable/cormorant";
-
 import { salt } from "@/config/salt";
 import { siteUrl } from "@/lib/metadata";
 import { layoutStyle } from "@/lib/tokens";
@@ -39,6 +37,7 @@ export default function SaltLayout({ children }: { children: React.ReactNode }) 
   return (
     <div
       style={layoutStyle(salt.displayFont, salt.colors) as CSSProperties}
+      data-display-case={salt.displayCase}
       className="flex min-h-dvh flex-col bg-surface"
     >
       <SaltHeader />

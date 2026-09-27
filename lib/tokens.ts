@@ -21,6 +21,8 @@ export function colorTokens(colors: BrandColors): Record<string, string> {
     "--line": colors.line,
     "--on-brand": colors.onBrand,
     "--btn-radius": colors.btnRadius,
+    "--card-radius": colors.cardRadius ?? colors.btnRadius,
+    "--grid-gap": colors.gridGap ?? "1.25rem",
   };
 }
 

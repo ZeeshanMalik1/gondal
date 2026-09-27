@@ -22,40 +22,42 @@ function CorporateMark({ className }: { className?: string }) {
 
 function FishMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
+    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" strokeLinecap="round">
       <circle cx="16" cy="16" r="11.5" />
-      <path d="M12.5 15.5c2.8-3.4 5.4-5.6 6.6-4.4 4.4-2.2 1.8-.8 0 0c-2.4 2.6-4.4 4.2-4.2 3-.8 1.4Z M19 13.4a2.6 2 0 0 1 1 1 0 1Z" />
-      <path d="M16 21.4c1.8-1 3.6-2.4 5.4-2.2 4.6-1 3.4-.6 0 0Z" opacity="0.7" />
+      <path d="M8.5 16c4-5.2 11-5.2 15 0-4 5.2-11 5.2-15 0Z" />
+      <path d="M8.5 16 5.6 12.4M8.5 16 5.6 19.6" />
+      <path d="M18.5 12.4c1.5 2.1 1.5 5.1 0 7.2" />
+      <circle cx="21.4" cy="15" r="0.95" fill="currentColor" stroke="none" />
     </svg>
   );
 }
 
 function SaltMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
-      <path d="M16 6l6.4 7.4 4.6 4.6-7.6 3-7.6-1.6-9.4-2-10-1.8-1.6 4.2 3.4 0-6.6 6.8 1.6 6-0.2 3.8Z" />
-      <path d="M14.6 9.8h3.4M13.6 13.4h5M15 16.4h2.4" opacity="0.75" />
+    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M16 6 26 11.5 16 17 6 11.5Z" />
+      <path d="M6 11.5 16 17v9.5L6 21Z" />
+      <path d="M26 11.5 16 17v9.5l10-5.5Z" />
+      <path d="M16 6v11" opacity="0.55" />
     </svg>
   );
 }
 
 function CrushersMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
-      <rect x="7" y="7" width="18" height="18" rx="1" />
-      <path d="M11 25l4-6 4-8-3-2-3-3-3-6 5-3 3-2Z" />
-      <path d="M22 25l3-8" strokeDasharray="1.6 2.2" opacity="0.85" />
+    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M16 5 23 8 27 15 24.5 23 17 27 9 24 5 17 9 8.5Z" />
+      <path d="M20.5 7.2 16.5 16 20 26.2" />
     </svg>
   );
 }
 
 function FourthMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
-      <path d="M12 7c2.4 7 4.6 8.4 4 7.6 4 10 1.6 3.4-1.6-1.8-2.4-2.4-3.4-1.7-3.6-4.4-2.6-3-2.2-5 1.6-6 2.4-6 4-4.4 1-1.2.8-1 2.4 1-1.4-4.4-3.7Z" transform="translate(2 0) scale(1.02)" />
-      <path d="M14 7.5a4.4 4.4 0 0 1 1 1 0 1Z M14 7.5a3 3 0 0 1 0 1 0 1Z" opacity="0.85" />
-      <path d="M16 11v6M16 17.6c1.4 0 2.6-1.2 4-1.4 3.2-2.6 0-1.4-2.4-1-3.4-3-2-2.6-4.4-1.8 0-1.4 1.6 2 2.4 3-3.4 4.6-3 4.6-.6 2-.4 0 0z" opacity="0.7" />
-      <path d="M6 26.5h20" strokeWidth="3.4" strokeLinecap="round" opacity="0.8" />
+    <svg viewBox="0 0 32 32" className={cn("h-8 w-8", className)} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M16 4.5C20.5 10.5 23.5 14.3 23.5 17.7A7.5 7.5 0 0 1 8.5 17.7C8.5 14.3 11.5 10.5 16 4.5Z" />
+      <path d="M12.2 19.4a4.6 4.6 0 0 0 3.1 4" opacity="0.7" />
+      <path d="M5 28h22" strokeWidth="3" opacity="0.8" />
     </svg>
   );
 }

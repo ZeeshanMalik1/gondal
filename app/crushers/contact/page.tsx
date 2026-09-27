@@ -32,13 +32,13 @@ export default function CrushersContactPage() {
               <div className="border border-line-var bg-[#1B1E22] p-8 text-white">
                 <p className="font-eyebrow text-[#E4A11B]">Plant office</p>
                 <ul className="mt-6 divide-y divide-white/10">
-                  {[
+                  {([
                     ["phone", "Phone", crushers.contact.phone, `tel:${crushers.contact.phone.replace(/\s/g, "")}`],
                     ["whatsapp", "WhatsApp", crushers.contact.whatsapp ?? "", crushers.contact.whatsapp ? `https://wa.me/${crushers.contact.whatsapp.replace(/\D/g, "")}` : ""],
                     ["mail", "Email", crushers.contact.email, `mailto:${crushers.contact.email}`],
                     ["pin", "Address", crushers.contact.address, ""],
                     ["clock", "Hours", crushers.contact.hours, ""],
-                  ].map(([icon, label, value, href]) => (
+                  ] as const).map(([icon, label, value, href]) => (
                     <li key={label} className="flex items-center gap-4 py-4">
                       <Icon name={icon} label={label} className="h-5 w-5 shrink-0 text-[#E4A11B]" />
                       <div className="min-w-0 flex-1">

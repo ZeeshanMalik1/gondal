@@ -2,12 +2,21 @@ import { site } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion/Reveal";
+
+type ContactRow = { icon: IconName; label: string; value: string; href?: string };
 
 /** Corporate contact / enquiry CTA band. */
 export function ContactCtaSection() {
   const contact = site.contact;
+  const rows: ContactRow[] = [
+    { icon: "phone", label: "Phone", value: contact.phone, href: `tel:+${contact.phone.replace(/\D/g, "")}` },
+    { icon: "mail", label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    { icon: "whatsapp", label: "WhatsApp", value: contact.whatsapp ?? "", href: contact.whatsapp ? `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}` : "" },
+    { icon: "pin", label: "Address", value: contact.address },
+    { icon: "clock", label: "Office hours", value: contact.hours },
+  ];
   return (
     <Section id="contact" ariaLabel="Contact the group" className="bg-surface">
       <Container className="rounded-2xl bg-brand-soft py-20 sm:py-24">
@@ -36,13 +45,7 @@ export function ContactCtaSection() {
 
           <Reveal delay={0.12}>
             <ul className="divide-y divide-line-var rounded-xl border border-line-var bg-paper">
-              {[
-                { icon: "phone", label: "Phone", value: contact.phone, href: `tel:+${contact.phone.replace(/\D/g, "")}` },
-                { icon: "mail", label: "Email", value: contact.email, href: `mailto:${contact.email}` },
-                { icon: "whatsapp", label: "WhatsApp", value: contact.whatsapp ?? "", href: contact.whatsapp ? `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}` : "" },
-                { icon: "pin", label: "Address", value: contact.address },
-                { icon: "clock", label: "Office hours", value: contact.hours },
-              ].map((row) => (
+              {rows.map((row) => (
                 <li key={row.label} className="flex items-center gap-4 px-5 py-4">
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-brand-soft">
                     <Icon name={row.icon} label={row.label} className="h-5 w-5 text-brand" />

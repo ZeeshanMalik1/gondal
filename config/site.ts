@@ -10,6 +10,8 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
+import type { IconName } from "@/components/ui/Icon";
+
 export interface CorporateStat {
   value: number;
   prefix?: string;
@@ -47,8 +49,8 @@ export interface CorporateSite {
     quote: string;
   };
   history: { period: string; title: string; body: string }[];
-  values: { title: string; body: string; icon: string }[];
-  whyUs: { index: string; title: string; body: string; icon: string }[];
+  values: { title: string; body: string; icon: IconName }[];
+  whyUs: { index: string; title: string; body: string; icon: IconName }[];
   stats: CorporateStat[];
   locations: CorporateLocation[];
   contact: {

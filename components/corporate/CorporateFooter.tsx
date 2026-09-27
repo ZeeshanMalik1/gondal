@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/config/site";
 import { businesses } from "@/config";
 import { Container } from "@/components/ui/Container";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { BrandLockup } from "@/components/branding/Logos";
 
@@ -14,7 +14,7 @@ const QUICK_LINKS = [
   { href: "/#contact", label: "Contact" },
 ];
 
-const SOCIAL_ICONS: Record<string, string> = {
+const SOCIAL_ICONS: Record<string, IconName> = {
   LinkedIn: "linkedin",
   Facebook: "facebook",
   Instagram: "instagram",

@@ -108,6 +108,19 @@ h6,
   letter-spacing: -0.01em;
 }
 
+/* Opt-in display casing. Roman titling faces (see config `displayCase`) are
+   set in caps by the layout's data-display-case attribute. */
+[data-display-case="upper"] h1,
+[data-display-case="upper"] h2,
+[data-display-case="upper"] h3,
+[data-display-case="upper"] h4,
+[data-display-case="upper"] h5,
+[data-display-case="upper"] h6,
+[data-display-case="upper"] .font-display {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
 .font-eyebrow {
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   text-transform: uppercase;
@@ -221,6 +234,35 @@ h6,
   outline: none;
   border-color: var(--brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 20%, transparent);
+}
+
+/* ---- Cards & chips (shared primitives; radii come from --card-radius) ---- */
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius, 0.5rem);
+  background-color: var(--paper, #fff);
+  padding: 1.25rem;
+}
+/* Lift-on-hover card used for anything tappable (product tiles, facilities). */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--brand-primary) 30%, var(--line));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.09);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--card-radius, 0.5rem) * 0.7);
+  background-color: var(--brand-faint, #f7f7f7);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--muted);
 }
 
 /* ---- Links -------------------------------------------------------------- */

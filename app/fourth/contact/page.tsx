@@ -36,13 +36,13 @@ export default function FourthContactPage() {
               <div className="rounded-lg border border-line-var bg-[#14151A] p-8 text-white">
                 <p className="font-eyebrow text-[#C9A227]">Yard office</p>
                 <ul className="mt-6 divide-y divide-white/10">
-                  {[
+                  {([
                     ["phone", "Phone", fourth.contact.phone, `tel:${fourth.contact.phone.replace(/\s/g, "")}`],
                     ["whatsapp", "WhatsApp", fourth.contact.whatsapp ?? "", fourth.contact.whatsapp ? `https://wa.me/${fourth.contact.whatsapp.replace(/\D/g, "")}` : ""],
                     ["mail", "Email", fourth.contact.email, `mailto:${fourth.contact.email}`],
                     ["pin", "Address", fourth.contact.address, ""],
                     ["clock", "Hours", fourth.contact.hours, ""],
-                  ].map(([icon, label, value, href]) => (
+                  ] as const).map(([icon, label, value, href]) => (
                     <li key={label} className="flex items-center gap-4 py-4">
                       <Icon name={icon} label={label} className="h-5 w-5 shrink-0 text-[#C9A227]" />
                       <div className="min-w-0 flex-1">

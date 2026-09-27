@@ -5,46 +5,65 @@ import { Figure } from "@/components/ui/Figure";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion/Reveal";
 
-/** Salt Works hero — dark mineral band, pink-crystal accent, spec strip. */
+const GRADES = [
+  {
+    no: "01",
+    grade: "Food grade",
+    line: "Himalayan pink & iodised table salt",
+  },
+  {
+    no: "02",
+    grade: "Industrial",
+    line: "Rock salt for chemical & processing",
+  },
+  {
+    no: "03",
+    grade: "Infrastructure",
+    line: "De-icing & road salt for cold markets",
+  },
+];
+
+/**
+ * Home hero — dark mineral band with a two-column grid: headline block beside
+ * the hero plate, closed by a three-up grade strip on the same grid.
+ */
 export function SaltHero() {
   return (
-    <section className="relative overflow-hidden border-b border-[#D6A08A]/25 bg-surface-dark text-white">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#211F1C] via-transparent to-[#3A302C]" aria-hidden="true" />
-      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full opacity-10" viewBox="0 0 900 600" fill="none" stroke="#D6A08A" strokeWidth="1">
-        <path d="M0 90l150 60 220 130 380 60 480 140 620 90 760 60 860 120 900 90" opacity="0.5" />
-        <path d="M0 180l120 70 300 110 460 60 640 130 780 70 900 110" opacity="0.7" />
-        <path d="M0 470l200 60 420 110 700 70 900 100" />
-      </svg>
+    <section className="relative overflow-hidden border-b border-white/10 bg-surface-dark text-white">
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-deep via-surface-dark to-surface-dark"
+        aria-hidden="true"
+      />
 
-      <Container className="relative grid items-center gap-12 pt-14 pb-24 lg:grid-cols-[1fr_0.9fr] lg:pt-20 lg:pb-28">
+      <Container className="relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
         <div>
           <Reveal>
-            <p className="inline-flex items-center gap-3 font-eyebrow text-[#D6A08A]">
-              <span className="h-px w-10 bg-[#D6A08A]" aria-hidden="true" />
+            <p className="inline-flex items-center gap-3 font-eyebrow text-accent">
+              <span className="h-px w-10 bg-accent" aria-hidden="true" />
               {salt.hero.eyebrow}
             </p>
-            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.07] tracking-tight text-white sm:text-5xl md:text-6xl">
-              {salt.hero.headline[0]}{" "}
-              <span className="italic text-[#D6A08A]">{salt.hero.headline[1]}</span>
+            <h1 className="mt-6 font-display text-4xl font-medium leading-[1.06] text-white sm:text-5xl lg:text-6xl">
+              {salt.hero.headline[0]}
+              <span className="mt-2 block text-accent">{salt.hero.headline[1]}</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.12}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75">{salt.hero.support}</p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">{salt.hero.support}</p>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="mt-8 flex flex-wrap gap-3.5">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Button href={salt.hero.ctaPrimary.href} size="lg">
                 {salt.hero.ctaPrimary.label}
-                <Icon name="crystal" className="h-4 w-4" />
+                <Icon name="arrow-right" className="h-4 w-4" />
               </Button>
-              <Button href={salt.hero.ctaSecondary.href} variant="outline" size="lg">
+              <Button href={salt.hero.ctaSecondary.href} variant="outline" size="lg" className="border-white/30 text-white hover:border-accent hover:text-accent">
                 {salt.hero.ctaSecondary.label}
               </Button>
             </div>
-            <p className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/55">
-              <Icon name="pin" className="h-3.5 w-3.5 text-[#D6A08A]" />
+            <p className="mt-7 flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-white/50">
+              <Icon name="pin" className="h-3.5 w-3.5 text-accent" />
               {salt.hero.note}
             </p>
           </Reveal>
@@ -54,28 +73,31 @@ export function SaltHero() {
           <Figure
             src={salt.images.hero}
             alt="Cluster of pink rock-salt crystals — placeholder artwork"
-            className="aspect-[4/3] w-full rounded-md border border-white/15"
+            className="aspect-[4/3] w-full overflow-hidden rounded-[var(--card-radius)] border border-white/15"
             priority
           />
-          <p className="absolute -bottom-4 left-4 inline-flex items-center gap-2 rounded-sm bg-[#211F1C] px-4 py-2 text-sm font-semibold text-[#D6A08A]">
+          <p className="absolute -bottom-4 left-4 inline-flex items-center gap-2 rounded-[var(--card-radius)] bg-brand px-4 py-2 text-sm font-semibold text-white">
             <Icon name="gem" className="h-4 w-4" />
             Traceable to the mine
           </p>
         </Reveal>
       </Container>
 
-      {/* grade strip */}
-      <Container className="relative">
-        <div className="grid gap-px overflow-hidden border border-white/15 bg-white/10 sm:grid-cols-3">
-          {[
-            ["01", "Food grade", "Himalayan pink & iodised table salt"],
-            ["02", "Industrial", "Rock salt for chemical & processing"],
-            ["03", "Infrastructure", "De-icing & road salt for cold markets"],
-          ].map(([no, grade, line], i) => (
-            <Reveal key={grade} delay={i * 0.08} className="bg-[#211F1C] px-6 py-5">
-              <p className="font-display text-3xl font-semibold text-[#D6A08A]">{no}<span className="text-white/50"> /</span></p>
-              <h2 className="mt-1 font-display text-lg font-semibold text-white">{grade}</h2>
-              <p className="mt-1 text-xs leading-relaxed text-white/60">{line}</p>
+      {/* grade strip — same grid, boxed cells on a hairline */}
+      <Container className="relative pb-16 lg:pb-24">
+        <div className="grid gap-[var(--grid-gap)] sm:grid-cols-3">
+          {GRADES.map((item, i) => (
+            <Reveal
+              key={item.grade}
+              delay={i * 0.08}
+              className="rounded-[var(--card-radius)] border border-white/12 bg-white/5 px-5 py-5"
+            >
+              <p className="font-display text-2xl font-medium text-accent">
+                {item.no}
+                <span className="text-white/35"> /</span>
+              </p>
+              <h2 className="mt-2 font-display text-lg font-medium text-white">{item.grade}</h2>
+              <p className="mt-1.5 text-xs leading-relaxed text-white/60">{item.line}</p>
             </Reveal>
           ))}
         </div>
