@@ -26,13 +26,21 @@ export function colorTokens(colors: BrandColors): Record<string, string> {
   };
 }
 
-/** Full style map for a layout wrapper: display font + entire brand palette. */
+/**
+ * Full style map for a layout wrapper: display + body font and the entire brand
+ * palette. The wrapper also resolves its own `font-family` from `--font-body`,
+ * because the inherited value from <body> is already computed and cannot be
+ * re-evaluated with the wrapper's local variable.
+ */
 export function layoutStyle(
   displayFont: string,
+  bodyFont: string,
   colors: BrandColors,
 ): CSSProperties {
   return {
     "--font-display": `"${displayFont}"`,
+    "--font-body": `"${bodyFont}"`,
+    fontFamily: "var(--font-body, var(--font-sans))",
     ...colorTokens(colors),
   } as CSSProperties;
 }

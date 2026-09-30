@@ -34,12 +34,12 @@ export function CrushersHeader() {
         )}
       >
         <div className="border-b border-white/10">
-          <Container className="flex items-center justify-between gap-4 py-2.5">
-            <p className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/70">
-              <span className="h-2 w-2 bg-[#E4A11B]" aria-hidden="true" />
-              {crushers.name} · {crushers.est}
+          <Container className="flex items-center justify-between gap-3 py-2.5">
+            <p className="inline-flex min-w-0 items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/70">
+              <span className="h-2 w-2 shrink-0 bg-[#E4A11B]" aria-hidden="true" />
+              <span className="truncate">{crushers.name} · {crushers.est}</span>
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex shrink-0 items-center gap-3 sm:gap-5">
               <a href={`tel:${crushers.contact.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white">
                 <Icon name="phone" className="h-3.5 w-3.5" label="Phone" />
                 {crushers.contact.phone}
@@ -52,44 +52,47 @@ export function CrushersHeader() {
 
       {/* main bar */}
       <div className="border-b border-white/10">
-        <Container className="flex items-center justify-between gap-6 py-4">
-          <Link href="/crushers" aria-label={`${crushers.name} — home`} className="shrink-0">
+        <Container className="flex items-center justify-between gap-3 py-3.5 sm:gap-6 sm:py-4">
+          <Link href="/crushers" aria-label={`${crushers.name} — home`} className="min-w-0">
             <BrandLockup mark="crushers" name={crushers.shortName.toUpperCase()} sub={crushers.industryTag.toUpperCase()} tone="on-dark" />
           </Link>
 
-          <nav aria-label="Crushing Works" className="hidden lg:flex lg:items-center">
-            {crushers.navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn(
-                  "px-3.5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.08em] transition-colors",
-                  isActive(item.href) ? "bg-[#E4A11B] text-[#16181C]" : "text-white/70 hover:bg-white/5 hover:text-white",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <nav aria-label="Crushing Works" className="hidden lg:flex lg:items-center lg:gap-0.5 xl:gap-1">
+              {crushers.navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "px-2.5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.08em] transition-colors xl:px-3.5",
+                    isActive(item.href) ? "bg-[#E4A11B] text-[#16181C]" : "text-white/70 hover:bg-white/5 hover:text-white",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
 
-          <Link
-            href="/crushers/contact"
-            className="hidden shrink-0 bg-[#E4A11B] px-4 py-2.5 text-sm font-bold uppercase tracking-[0.06em] text-[#16181C] transition hover:bg-[#B97F12] md:inline-flex"
-          >
-            Order aggregate
-          </Link>
+            <Link
+              href="/crushers/contact"
+              className="hidden shrink-0 bg-[#E4A11B] px-4 py-2.5 text-sm font-bold uppercase tracking-[0.06em] text-[#16181C] transition hover:bg-[#B97F12] md:inline-flex lg:hidden xl:inline-flex"
+            >
+              Order aggregate
+            </Link>
 
-          <button
-            type="button"
-            className="grid h-11 w-11 place-items-center border border-white/20 text-white lg:hidden"
-            aria-expanded={open}
-            aria-controls="crushers-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen(!open)}
-          >
-            <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
-          </button>
+            <button
+              type="button"
+              className="relative z-10 grid h-11 w-11 shrink-0 place-items-center border border-white/20 text-white transition-colors hover:bg-white/10 lg:hidden"
+              aria-expanded={open}
+              aria-controls="crushers-menu"
+              aria-haspopup="dialog"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen(!open)}
+            >
+              <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
+            </button>
+          </div>
         </Container>
       </div>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { crushers } from "@/config/crushers";
 import { makeMetadata } from "@/lib/metadata";
 import { CrushersHero } from "@/components/crushers/CrushersHero";
+import { CrushersYardSlider } from "@/components/crushers/CrushersYardSlider";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeader, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -56,6 +57,9 @@ export default function CrushersHomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* Plant & yard slider — conveyor track */}
+      <CrushersYardSlider />
 
       <Section ariaLabel="Products" className="border-t-[6px] border-[#E4A11B] bg-[#1B1E22] text-white">
         <Container className="py-20 sm:py-24">

@@ -182,6 +182,9 @@ export interface BusinessConfig {
   colors: BrandColors;
   /** Display font family name (loaded by each business layout via @fontsource). */
   displayFont: string;
+  /** Body font family name. Both currently resolve to Poppins group-wide; the
+   *  fields stay separate so a site can be re-typed without touching tokens. */
+  bodyFont: string;
   /** Layouts with `upper` set data-display-case on their wrapper, which renders
    *  headings in caps — for Roman titling faces, which read best that way. */
   displayCase?: "upper" | "none";

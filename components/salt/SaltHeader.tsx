@@ -39,12 +39,12 @@ export function SaltHeader() {
           scrolled ? "max-h-0 opacity-0" : "max-h-16 opacity-100",
         )}
       >
-        <Container className="flex items-center justify-between gap-4 py-2">
-          <p className="inline-flex items-center gap-2 text-[0.8rem] text-white/85">
-            <Icon name="crystal" className="h-3.5 w-3.5" />
-            <span>{salt.name} · {salt.est}</span>
+        <Container className="flex items-center justify-between gap-3 py-2">
+          <p className="inline-flex min-w-0 items-center gap-2 text-[0.8rem] text-white/85">
+            <Icon name="crystal" className="h-3.5 w-3.5 shrink-0" />
+            <span className="truncate">{salt.name} · {salt.est}</span>
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex shrink-0 items-center gap-3 sm:gap-5">
             <a
               href={`mailto:${salt.contact.email}`}
               className="hidden text-[0.8rem] text-white/85 hover:text-white sm:inline"
@@ -66,46 +66,49 @@ export function SaltHeader() {
 
       {/* main bar */}
       <div className="border-b border-white/10">
-        <Container className="flex items-center justify-between gap-6 py-4">
-          <Link href="/salt" aria-label={`${salt.name} — home`} className="shrink-0">
+        <Container className="flex items-center justify-between gap-3 py-3.5 sm:gap-6 sm:py-4">
+          <Link href="/salt" aria-label={`${salt.name} — home`} className="min-w-0">
             <BrandLockup mark="salt" name={salt.shortName} sub={salt.tagline} tone="on-dark" />
           </Link>
 
-          <nav aria-label="Salt Works" className="hidden lg:flex lg:items-center lg:gap-1">
-            {salt.navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn(
-                  "border-b-2 px-3.5 py-2 text-[0.82rem] font-medium uppercase tracking-[0.1em] transition-colors",
-                  isActive(item.href)
-                    ? "border-accent text-white"
-                    : "border-transparent text-white/70 hover:border-white/30 hover:text-white",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <nav aria-label="Salt Works" className="hidden lg:flex lg:items-center lg:gap-0.5 xl:gap-1">
+              {salt.navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "border-b-2 px-2.5 py-2 text-[0.82rem] font-medium uppercase tracking-[0.1em] transition-colors xl:px-3.5",
+                    isActive(item.href)
+                      ? "border-accent text-white"
+                      : "border-transparent text-white/70 hover:border-white/30 hover:text-white",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
 
-          <Link
-            href="/salt/contact"
-            className="hidden shrink-0 rounded-[var(--card-radius)] bg-accent px-4 py-2.5 text-sm font-semibold text-surface-dark transition hover:bg-white md:inline-flex"
-          >
-            Request a quote
-          </Link>
+            <Link
+              href="/salt/contact"
+              className="hidden shrink-0 rounded-[var(--card-radius)] bg-accent px-4 py-2.5 text-sm font-semibold text-surface-dark transition hover:bg-white md:inline-flex lg:hidden xl:inline-flex"
+            >
+              Request a quote
+            </Link>
 
-          <button
-            type="button"
-            className="grid h-11 w-11 place-items-center rounded-[var(--card-radius)] border border-white/20 text-white lg:hidden"
-            aria-expanded={open}
-            aria-controls="salt-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen(!open)}
-          >
-            <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
-          </button>
+            <button
+              type="button"
+              className="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-[var(--card-radius)] border border-white/20 text-white transition-colors hover:bg-white/10 lg:hidden"
+              aria-expanded={open}
+              aria-controls="salt-menu"
+              aria-haspopup="dialog"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen(!open)}
+            >
+              <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
+            </button>
+          </div>
         </Container>
       </div>
 

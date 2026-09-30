@@ -1,9 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource/instrument-serif/400-italic.css";
-
 import { fish } from "@/config/fish";
 import { siteUrl } from "@/lib/metadata";
 import { layoutStyle } from "@/lib/tokens";
@@ -39,7 +36,7 @@ export const viewport: Viewport = {
 export default function FishLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      style={layoutStyle(fish.displayFont, fish.colors) as CSSProperties}
+      style={layoutStyle(fish.displayFont, fish.bodyFont, fish.colors) as CSSProperties}
       className="flex min-h-dvh flex-col bg-surface"
     >
       <FishHeader />

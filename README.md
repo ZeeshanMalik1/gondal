@@ -43,12 +43,45 @@ npm run start
 | Corporate site | `components/corporate/` | Group header, hero, businesses panels, stats, locations, contact |
 | Per-business site | `components/fish/`, `salt/`, `crushers/`, `fourth/` | Independent headers, heroes, footers with distinct design languages |
 | Motion | `components/motion/` | `Reveal`, `Counter` (Framer Motion, reduced-motion aware) |
+| Sliders | `lib/useSlider.ts` + `components/*/*Slider.tsx` | One headless slider engine, five deliberately different designs |
 | SEO | `lib/metadata.ts` | Per-page metadata, canonical URLs, OG/Twitter, `makeMetadata()` |
-| Design tokens | `lib/tokens.ts` | Maps each business's `colors` onto CSS variables per layout |
+| Design tokens | `lib/tokens.ts` | Maps each business's `colors` + fonts onto CSS variables per layout |
 
 Every business has its own `app/<slug>/layout.tsx`, which applies its fonts,
 CSS-variable theme, header, footer and metadata — so `/salt/products` gets the
 full Salt Works experience even on direct entry.
+
+#### Typography — Poppins, group-wide
+
+Poppins is loaded **once** in the root layout (`app/layout.tsx`, weights 300–700
+plus italics) and every site points at it:
+
+- `app/globals.css` → `--font-sans: "Poppins"`
+- `app/layout.tsx` (corporate) → `--font-display` / `--font-body`
+- each `config/*.ts` → `displayFont: "Poppins"`, `bodyFont: "Poppins"`
+
+`layoutStyle(displayFont, bodyFont, colors)` still emits both custom properties,
+so a site can be re-typed later by editing its config and adding the matching
+`@fontsource` import to that site's layout — no component changes required.
+
+#### Sliders — hero first, then in-page galleries
+
+Every site's **hero section** is image-slider driven: the hero artwork rotates
+(crossfade, direction-aware slide, or conveyor track depending on the site) with
+its own pager and prev/next controls, auto-advance, swipe and ←/→ keys.
+
+| Site | Hero slider | In-page slider |
+|---|---|---|
+| Corporate | Full-bleed background crossfade (group plate → each business) with gold bar pager | `GroupSlider` — editorial showcase with numbered rail + progress rule |
+| Fish | Rounded framed plate crossfade with droplet pager | `FishPondSlider` — matted frame, caption pill |
+| Salt | Sharp plate, direction-aware slide, gold hairline pager | `SaltPlateSlider` — uppercase index rail catalogue |
+| Crushers | Conveyor track + numbered bay tabs | `CrushersYardSlider` — two-bay track with tick progress |
+| Fourth | Cinematic crossfade with slow drift, gold diamond pager | `FourthHighwaySlider` — full-bleed Ken-Burns stage |
+
+`lib/useSlider.ts` is the single behaviour engine behind all of them (see above);
+the in-page sliders can be removed per site by deleting their component usage
+from that site's `app/<slug>/page.tsx`.
+
 
 ### Adding a fifth business
 

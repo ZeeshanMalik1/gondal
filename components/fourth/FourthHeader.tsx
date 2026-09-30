@@ -34,12 +34,12 @@ export function FourthHeader() {
         )}
       >
         <div className="border-b border-white/10">
-          <Container className="flex items-center justify-between gap-4 py-2.5">
-            <p className="inline-flex items-center gap-2 text-xs text-white/70">
-              <span className="h-2 w-2 rounded-full bg-[#C9A227]" aria-hidden="true" />
-              {fourth.name} · {fourth.est}
+          <Container className="flex items-center justify-between gap-3 py-2.5">
+            <p className="inline-flex min-w-0 items-center gap-2 text-xs text-white/70">
+              <span className="h-2 w-2 shrink-0 rounded-full bg-[#C9A227]" aria-hidden="true" />
+              <span className="truncate">{fourth.name} · {fourth.est}</span>
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex shrink-0 items-center gap-3 sm:gap-5">
               <a href={`tel:${fourth.contact.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white">
                 <Icon name="phone" className="h-3.5 w-3.5" label="Phone" />
                 {fourth.contact.phone}
@@ -52,44 +52,47 @@ export function FourthHeader() {
 
       {/* main bar */}
       <div className="border-b border-white/10">
-        <Container className="flex items-center justify-between gap-6 py-4.5">
-          <Link href="/fourth" aria-label={`${fourth.name} — home`} className="shrink-0">
+        <Container className="flex items-center justify-between gap-3 py-3.5 sm:gap-6 sm:py-4.5">
+          <Link href="/fourth" aria-label={`${fourth.name} — home`} className="min-w-0">
             <BrandLockup mark="fourth" name="Black Gold Supply" sub={fourth.tagline} tone="on-dark" />
           </Link>
 
-          <nav aria-label="Black Gold Supply" className="hidden lg:flex lg:items-center lg:gap-1">
-            {fourth.navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn(
-                  "border-b-[3px] border-transparent px-3 py-2.5 text-[0.9rem] font-medium text-white/75 transition hover:text-white",
-                  isActive(item.href) && "border-[#C9A227] text-white",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <nav aria-label="Black Gold Supply" className="hidden lg:flex lg:items-center lg:gap-1">
+              {fourth.navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "border-b-[3px] border-transparent px-3 py-2.5 text-[0.9rem] font-medium text-white/75 transition hover:text-white",
+                    isActive(item.href) && "border-[#C9A227] text-white",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
 
-          <Link
-            href="/fourth/contact"
-            className="hidden shrink-0 bg-[#C9A227] px-4 py-2.5 text-sm font-semibold text-[#14151A] transition hover:bg-[#8F6F14] md:inline-flex"
-          >
-            Request supply
-          </Link>
+            <Link
+              href="/fourth/contact"
+              className="hidden shrink-0 bg-[#C9A227] px-4 py-2.5 text-sm font-semibold text-[#14151A] transition hover:bg-[#8F6F14] md:inline-flex"
+            >
+              Request supply
+            </Link>
 
-          <button
-            type="button"
-            className="grid h-11 w-11 place-items-center rounded-md border border-white/20 text-white lg:hidden"
-            aria-expanded={open}
-            aria-controls="fourth-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen(!open)}
-          >
-            <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
-          </button>
+            <button
+              type="button"
+              className="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-md border border-white/20 text-white transition-colors hover:bg-white/10 lg:hidden"
+              aria-expanded={open}
+              aria-controls="fourth-menu"
+              aria-haspopup="dialog"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen(!open)}
+            >
+              <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
+            </button>
+          </div>
         </Container>
       </div>
 

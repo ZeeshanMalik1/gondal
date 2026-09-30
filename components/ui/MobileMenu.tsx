@@ -112,7 +112,7 @@ export function MobileMenu({
   return (
     <AnimatePresence>
       {open ? (
-        <div className="fixed inset-0 z-[70]" id={id}>
+        <div className="fixed inset-0 z-[95]" id={id}>
           {/* backdrop */}
           <motion.div
             aria-hidden="true"

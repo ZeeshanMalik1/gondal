@@ -36,7 +36,7 @@ export const viewport: Viewport = {
 export default function SaltLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      style={layoutStyle(salt.displayFont, salt.colors) as CSSProperties}
+      style={layoutStyle(salt.displayFont, salt.bodyFont, salt.colors) as CSSProperties}
       data-display-case={salt.displayCase}
       className="flex min-h-dvh flex-col bg-surface"
     >

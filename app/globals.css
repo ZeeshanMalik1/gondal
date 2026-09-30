@@ -8,7 +8,7 @@
  * ------------------------------------------------------------------------- */
 
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
@@ -34,7 +34,7 @@ html {
 
 
 body {
-  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-family: var(--font-body, var(--font-sans, ui-sans-serif, system-ui, sans-serif));
   background-color: var(--surface);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -122,7 +122,7 @@ h6,
 }
 
 .font-eyebrow {
-  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-family: var(--font-body, var(--font-sans, ui-sans-serif, system-ui, sans-serif));
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.75rem;
@@ -152,6 +152,15 @@ h6,
 .text-muted-var { color: var(--muted); }
 .border-line-var { border-color: var(--line); }
 
+/* ---------------------------------------------------------------------------
+ * Shared component primitives (buttons, fields, cards) live in the
+ * `components` cascade layer. Layered rules lose to Tailwind's `utilities`
+ * layer, so a caller can always override a primitive with a plain utility
+ * (e.g. `text-white` on a dark hero, or `p-7` over `.card`) — unlayered CSS
+ * would win instead and make those overrides silently do nothing.
+ * ------------------------------------------------------------------------- */
+@layer components {
+
 /* ---- Buttons (shared primitive; radius differs per business) ------------ */
 .btn {
   display: inline-flex;
@@ -159,7 +168,7 @@ h6,
   justify-content: center;
   gap: 0.625rem;
   padding: 0.8rem 1.5rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-body, var(--font-sans));
   font-size: 0.925rem;
   font-weight: 600;
   line-height: 1;
@@ -223,7 +232,7 @@ h6,
   color: var(--ink, #111);
   padding: 0.7rem 0.9rem;
   font-size: 0.95rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-body, var(--font-sans));
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .input::placeholder {
@@ -264,6 +273,7 @@ h6,
   line-height: 1.2;
   color: var(--muted);
 }
+} /* end @layer components */
 
 /* ---- Links -------------------------------------------------------------- */
 .link-underline {

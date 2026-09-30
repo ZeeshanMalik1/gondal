@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { fourth } from "@/config/fourth";
 import { makeMetadata } from "@/lib/metadata";
 import { FourthHero } from "@/components/fourth/FourthHero";
+import { FourthHighwaySlider } from "@/components/fourth/FourthHighwaySlider";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeader, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -57,6 +58,9 @@ export default function FourthHomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* Highway slider — full-bleed cinematic run */}
+      <FourthHighwaySlider />
 
       <Section ariaLabel="Bitumen products" className="bg-brand-soft">
         <Container className="py-20 sm:py-24">

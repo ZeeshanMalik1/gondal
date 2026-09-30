@@ -94,14 +94,26 @@ export function BrandLockup({
   const primary = tone === "on-dark" ? "text-white" : "text-ink";
   const muted = tone === "on-dark" ? "text-white/60" : "text-muted-var";
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <Mark className={markClassName} />
-      <span className="leading-none">
-        <span className={cn("font-display text-xl font-semibold tracking-tight block", primary)}>
+    // `min-w-0` on the wrapper + `truncate` on both lines let the wordmark give
+    // way instead of pushing the header controls off small screens.
+    <span className={cn("inline-flex min-w-0 items-center gap-2.5", className)}>
+      <Mark className={cn("shrink-0", markClassName)} />
+      <span className="min-w-0 leading-none">
+        <span
+          className={cn(
+            "block truncate font-display text-lg font-semibold tracking-tight sm:text-xl",
+            primary,
+          )}
+        >
           {name}
         </span>
         {sub ? (
-          <span className={cn("mt-0.5 block text-[0.62rem] uppercase tracking-[0.22em]", muted)}>
+          <span
+            className={cn(
+              "mt-1 hidden truncate text-[0.62rem] uppercase tracking-[0.22em] sm:block",
+              muted,
+            )}
+          >
             {sub}
           </span>
         ) : null}

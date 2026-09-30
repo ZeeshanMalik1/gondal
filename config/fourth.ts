@@ -44,7 +44,8 @@ export const fourth: BusinessConfig = {
     onBrand: "#14151A",
     btnRadius: "0.25rem",
   },
-  displayFont: "Lora",
+  displayFont: "Poppins",
+  bodyFont: "Poppins",
   hero: {
     eyebrow: "[Est. Year] · Bitumen & road materials",
     headline: ["Black gold under", "every highway."],

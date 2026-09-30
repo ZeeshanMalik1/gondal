@@ -37,7 +37,8 @@ export const crushers: BusinessConfig = {
     onBrand: "#16181C",
     btnRadius: "0rem",
   },
-  displayFont: "Space Grotesk Variable",
+  displayFont: "Poppins",
+  bodyFont: "Poppins",
   hero: {
     eyebrow: "[Est. Year] · Quarrying & crushing",
     headline: ["Strength", "in stone."],

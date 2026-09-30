@@ -1,8 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 
-import "@fontsource-variable/space-grotesk";
-
 import { crushers } from "@/config/crushers";
 import { siteUrl } from "@/lib/metadata";
 import { layoutStyle } from "@/lib/tokens";
@@ -38,7 +36,7 @@ export const viewport: Viewport = {
 export default function CrushersLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      style={layoutStyle(crushers.displayFont, crushers.colors) as CSSProperties}
+      style={layoutStyle(crushers.displayFont, crushers.bodyFont, crushers.colors) as CSSProperties}
       className="flex min-h-dvh flex-col bg-surface"
     >
       <CrushersHeader />

@@ -38,7 +38,8 @@ export const fish: BusinessConfig = {
     onBrand: "#F2F7F4",
     btnRadius: "9999px",
   },
-  displayFont: "Instrument Serif",
+  displayFont: "Poppins",
+  bodyFont: "Poppins",
   hero: {
     eyebrow: `${"[Est. Year]"} · Freshwater aquaculture`,
     headline: ["Fresh from", "clean waters."],

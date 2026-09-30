@@ -1,10 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 
-import "@fontsource/lora/400.css";
-import "@fontsource/lora/500.css";
-import "@fontsource/lora/700.css";
-
 import { fourth } from "@/config/fourth";
 import { siteUrl } from "@/lib/metadata";
 import { layoutStyle } from "@/lib/tokens";
@@ -40,7 +36,7 @@ export const viewport: Viewport = {
 export default function FourthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      style={layoutStyle(fourth.displayFont, fourth.colors) as CSSProperties}
+      style={layoutStyle(fourth.displayFont, fourth.bodyFont, fourth.colors) as CSSProperties}
       className="flex min-h-dvh flex-col bg-surface"
     >
       <FourthHeader />

@@ -22,7 +22,7 @@ export default function SaltGalleryPage() {
         eyebrow="Gallery"
         title="The mineral world of the works."
         current="Gallery"
-        lead="Placeholder artwork for now — replace with real photography in public/images/salt/."
+        lead="Real photography from the works and the product range — salt, lamps and candle holders."
       />
       <Section ariaLabel="Works gallery" className="bg-surface">
         <Container className="py-16 sm:py-20">

@@ -2,8 +2,13 @@ import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/playfair-display";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/400-italic.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/500-italic.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
 
 import { site } from "@/config/site";
 import { siteUrl } from "@/lib/metadata";
@@ -86,7 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       style={
         {
-          "--font-display": '"Playfair Display Variable"',
+          "--font-display": '"Poppins"',
+          "--font-body": '"Poppins"',
           ...colorTokens(corporateColors),
         } as CSSProperties
       }

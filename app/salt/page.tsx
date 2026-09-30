@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { salt } from "@/config/salt";
 import { makeMetadata } from "@/lib/metadata";
 import { SaltHero } from "@/components/salt/SaltHero";
+import { SaltPlateSlider } from "@/components/salt/SaltPlateSlider";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeader, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -30,8 +31,8 @@ export default function SaltHomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
             <Reveal className="relative lg:col-span-7">
               <Figure
-                src={salt.images.about ?? "/images/salt/crystals-pink.svg"}
-                alt="Pink salt crystals — placeholder artwork"
+                src={salt.images.about ?? "/images/salt/hero3.webp"}
+                alt="Gondal salt shaker sets displayed with their retail packaging"
                 className="aspect-[4/3] w-full overflow-hidden rounded-[var(--card-radius)] border border-line-var"
               />
               <p className="absolute -bottom-4 left-5 inline-flex items-center gap-2 rounded-[var(--card-radius)] bg-brand px-4 py-2 text-sm font-semibold text-white">
@@ -64,6 +65,9 @@ export default function SaltHomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* Mine-to-bay slider — plate catalogue */}
+      <SaltPlateSlider />
 
       {/* Products — boxed three-up grid on a white sheet */}
       <Section ariaLabel="Products" className="border-y border-line-var bg-brand-faint">

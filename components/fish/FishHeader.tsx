@@ -37,12 +37,12 @@ export function FishHeader() {
         )}
       >
         <div className="bg-brand-deep text-white">
-          <Container className="flex items-center justify-between gap-4 py-2.5">
-            <p className="inline-flex items-center gap-2 text-xs text-white/75">
-              <Icon name="tint" className="h-3.5 w-3.5 text-brand" />
-              <span>{fish.name} · {fish.est}</span>
+          <Container className="flex items-center justify-between gap-3 py-2.5">
+            <p className="inline-flex min-w-0 items-center gap-2 text-xs text-white/75">
+              <Icon name="tint" className="h-3.5 w-3.5 shrink-0 text-brand" />
+              <span className="truncate">{fish.name} · {fish.est}</span>
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex shrink-0 items-center gap-3 sm:gap-5">
               <a href={`tel:${fish.contact.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 text-xs text-white/85 hover:text-white">
                 <Icon name="phone" className="h-3.5 w-3.5" label="Phone" />
                 {fish.contact.phone}
@@ -60,44 +60,47 @@ export function FishHeader() {
           scrolled ? "bg-white" : "bg-white/85 backdrop-blur-sm",
         )}
       >
-        <Container className="flex items-center justify-between gap-6 py-4">
-          <Link href="/fish" aria-label={`${fish.name} — home`} className="shrink-0">
+        <Container className="flex items-center justify-between gap-3 py-3.5 sm:gap-6 sm:py-4">
+          <Link href="/fish" aria-label={`${fish.name} — home`} className="min-w-0">
             <BrandLockup mark="fish" name={fish.shortName} sub={fish.tagline} tone="on-light" />
           </Link>
 
-          <nav aria-label="Fish Farm" className="hidden lg:flex lg:items-center lg:gap-1">
-            {fish.navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn(
-                  "rounded-full px-3.5 py-2 text-[0.9rem] font-medium transition",
-                  isActive(item.href)
-                    ? "bg-brand-soft text-brand"
-                    : "text-muted-var hover:bg-brand-faint hover:text-brand",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <nav aria-label="Fish Farm" className="hidden lg:flex lg:items-center lg:gap-0.5 xl:gap-1">
+              {fish.navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-2.5 py-2 text-[0.9rem] font-medium transition xl:px-3.5",
+                    isActive(item.href)
+                      ? "bg-brand-soft text-brand"
+                      : "text-muted-var hover:bg-brand-faint hover:text-brand",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
 
-          <Button href="/fish/contact" size="sm" className="hidden md:inline-flex">
-            <Icon name="fish" className="h-4 w-4" />
-            Order fish
-          </Button>
+            <Button href="/fish/contact" size="sm" className="hidden md:inline-flex lg:hidden xl:inline-flex">
+              <Icon name="fish" className="h-4 w-4" />
+              Order fish
+            </Button>
 
-          <button
-            type="button"
-            className="grid h-11 w-11 place-items-center rounded-full border border-line-var text-ink lg:hidden"
-            aria-expanded={open}
-            aria-controls="fish-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen(!open)}
-          >
-            <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
-          </button>
+            <button
+              type="button"
+              className="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line-var text-ink transition-colors hover:bg-brand-faint lg:hidden"
+              aria-expanded={open}
+              aria-controls="fish-menu"
+              aria-haspopup="dialog"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen(!open)}
+            >
+              <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
+            </button>
+          </div>
         </Container>
       </div>
 

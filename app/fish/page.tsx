@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { fish } from "@/config/fish";
 import { makeMetadata } from "@/lib/metadata";
 import { FishHero } from "@/components/fish/FishHero";
+import { FishPondSlider } from "@/components/fish/FishPondSlider";
 import { SpeciesCard } from "@/components/fish/SpeciesCard";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeader, Eyebrow } from "@/components/ui/Section";
@@ -64,6 +65,9 @@ export default function FishHomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* Pond gallery slider */}
+      <FishPondSlider />
 
       {/* Species preview */}
       <Section ariaLabel="Our fish species" className="bg-brand-soft">
